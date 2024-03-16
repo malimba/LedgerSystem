@@ -1,0 +1,38 @@
+{% extends 'baselayout.html' %}
+{% load static %}
+
+{% block headlinks %}
+
+{% endblock headlinks %}
+{% block title %}
+Home
+{% endblock title %}
+
+{% block body %}
+<div class="alert alert-primary" role="alert">
+    CREATE NEW UPLOAD XLSX
+  </div>
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="unit"><h4><b>Unit</b></h4></label>
+    <input type="number" name="unit" id="unit" placeholder="Unit">
+    <br>
+    <label for="accountNum"><h4><b>Account number</b></h4></label>
+    <input type="number" name="accountNum" id="accountNum" placeholder="Account Number">
+    <br>
+    <label for="serviceName"><h4><b>Service Name</b></h4></label>
+    <select name="serviceName" id="serviceName">
+        {%if serviceOpts%}
+        {% for serviceName in serviceOpts %}
+        <option value="{{serviceName.id}}">{{serviceName.serviceName}}</option>
+        {% endfor %}
+        {%else%}
+        <option value="0">Null</option>
+        {% endif %}
+    </select>
+    <div id="bankDetailssortCodeDiv" name="bankDetailssortCodeDiv">
+
+    </div>
+    no, service name, sort code
+  </form>
+{% endblock body %}

@@ -18,9 +18,4 @@ class PackageDetails(models.Model):
     packageDesc = models.TextField(blank=False, null=False, default='PACKAGE DETAILS GO HERE')
 
 
-class DataDetails(models.Model):
-    id = models.AutoField(primary_key=True, blank=False, null=False)
-    amount = models.IntegerField(blank=False, null=False)
-    dataAlloc = models.CharField(max_length=100, blank=False, null=False)
-    packageDetails = models.CharField(max_length=30, blank=False, null=False)
 

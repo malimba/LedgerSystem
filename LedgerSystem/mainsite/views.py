@@ -1,6 +1,8 @@
 from django.shortcuts import render
-
+from .models import *
 # Create your views here.
-def createXlsx(request):
+def Home(request):
     if request.method == 'GET':
-        return render(request, 'createXLX.html', context)
+        serviceObjs = Service.objects.all()
+        context = {'serviceOpts':serviceObjs}
+        return render(request, 'home.html', context)
